@@ -2,6 +2,9 @@ name: Telco ColorCoder
 
 on: [push, pull_request]
 
+env:
+  DOTNET_VERSION: '6.0.401'
+
 jobs:
 
   build:
@@ -25,10 +28,10 @@ jobs:
 
     # Install the .NET Core workload
     - name: Install .NET Core
-      uses: actions/setup-dotnet@v1
+      uses: actions/setup-dotnet@v3
       with:
-        dotnet-version: 3.1.101
+        dotnet-version: ${{ env.DOTNET_VERSION }}
 
     # Run the app
     - name: Run the App
-      run: dotnet run -p TelCo.ColorCoder 
+      run: dotnet run --project TelCo.ColorCoder 

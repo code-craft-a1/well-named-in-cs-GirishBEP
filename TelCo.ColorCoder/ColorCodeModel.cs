@@ -5,31 +5,9 @@ namespace TelCo.ColorCoder
 {
     internal static class ColorCodeModel
     {
-        /// <summary>
-        /// MajorColors
-        /// enums are used instead of Color class to reduce memory foot print 
-        /// </summary>
-        public enum MajorColors
-        {
-            Min = 0,
-            White,
-            Red,
-            Black,
-            Yellow,
-            Violet,
-            Max
-        }
+        public enum MajorColors { Min = 0, White, Red, Black, Yellow, Violet, Max }
 
-        public enum MinorColors
-        {
-            Min = 0,
-            Blue,
-            Orange,
-            Green,
-            Brown,
-            SlateGray,
-            Max
-        }
+        public enum MinorColors { Min = 0, Blue, Orange, Green, Brown, SlateGray, Max }
 
         public const int PairStartNumber = 1;
 
@@ -54,10 +32,7 @@ namespace TelCo.ColorCoder
             }
         }
 
-        // Dictionary is maintained readonly, populated in code to increase readability
-        // Populating via code is not advised to avoid errors
         public static readonly Dictionary<int, ColorPairModel> ColorCodePairs = new Dictionary<int, ColorPairModel>();
-
         static ColorCodeModel()
         {
             for (int i = PairStartNumber; i <= ((int)MajorColors.Max - 1) * ((int)MinorColors.Max - 1); i++)

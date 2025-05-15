@@ -16,15 +16,11 @@ namespace TelCo.ColorCoder
     {
         public static int GetPairNumberFromColor(Color major, Color minor)
         {
-            InputValidator.ValidateColorPair(major, minor);
-
-            
+            InputValidator.ValidateColorPair(major, minor);            
             Enum.TryParse(major.Name, out MajorColors majorColor);
             Enum.TryParse(minor.Name, out MinorColors minorColor);
             ColorPairModel cp = new ColorPairModel(majorColor, minorColor);
-
             return ColorCodeModel.ColorCodePairs.FirstOrDefault(kv => kv.Value.Equals(cp)).Key;
-
         }
 
         internal static ColorPairModel GetColorFromPairNumber(int pairNumber)
